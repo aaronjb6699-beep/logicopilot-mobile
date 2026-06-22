@@ -1,0 +1,85 @@
+{
+  "expo": {
+    "name": "LogiCopilot",
+    "slug": "mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "logicopilot",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": false,
+    "splash": {
+      "image": "./assets/images/icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1E3A5F"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.logicopilot.app",
+      "deploymentTarget": "16.0",
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "Use biometric authentication to access LogiCopilot securely.",
+        "NSLocalAuthenticationUsageDescription": "Authenticate to access your LogiCopilot account.",
+        "NSCameraUsageDescription": "LogiCopilot uses the camera so you can photograph permits, site hazards, and documents for AI analysis.",
+        "NSPhotoLibraryUsageDescription": "LogiCopilot accesses your photo library so you can attach images of permits, site conditions, and documents for AI analysis."
+      }
+    },
+    "android": {
+      "package": "com.logicopilot.app",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/icon.png",
+        "backgroundColor": "#1E3A5F"
+      },
+      "compileSdkVersion": 35,
+      "minSdkVersion": 29,
+      "permissions": [
+        "USE_BIOMETRIC",
+        "USE_FINGERPRINT",
+        "RECEIVE_BOOT_COMPLETED",
+        "VIBRATE",
+        "CAMERA",
+        "READ_MEDIA_IMAGES",
+        "READ_EXTERNAL_STORAGE"
+      ],
+      "notification": {
+        "icon": "./assets/images/icon.png",
+        "color": "#1E3A5F",
+        "iosDisplayInForeground": true
+      }
+    },
+    "web": {
+      "favicon": "./assets/images/icon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      [
+        "expo-router",
+        {
+          "origin": "https://replit.com/"
+        }
+      ],
+      "expo-font",
+      "expo-web-browser",
+      "expo-secure-store",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "LogiCopilot accesses your photos to attach images for AI analysis.",
+          "cameraPermission": "LogiCopilot uses the camera to photograph permits, hazards, and documents."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/icon.png",
+          "color": "#1E3A5F",
+          "sounds": []
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": false
+    }
+  }
+}
