@@ -4,12 +4,13 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from "react-native";
-import { useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import type { LucideIcon } from "lucide-react-native";
-import { AlertCircle, AlignLeft, Calendar, CheckSquare, ChevronDown, Edit3, Hash, Minus, Type } from "lucide-react-native";
+import { AlertCircle, AlignLeft, Calendar, CheckSquare, ChevronDown, Edit3, Hash, Minus, Sparkles, Type } from "lucide-react-native";
 import { useGetForm } from "@workspace/api-client-react";
 import { useColors } from "@/hooks/useColors";
 import colorTokens from "@/constants/colors";
@@ -124,6 +125,15 @@ export default function FormDetailScreen() {
               </View>
             ))}
           </View>
+
+          <TouchableOpacity
+            style={[styles.fillBtn, { backgroundColor: colors.primary }]}
+            onPress={() => router.push(`/forms/fill/${displayed.id}`)}
+            activeOpacity={0.85}
+          >
+            <Sparkles size={16} color="#fff" />
+            <Text style={styles.fillBtnText}>Fill from Photo</Text>
+          </TouchableOpacity>
         </View>
 
         <Text style={[styles.sectionTitle, { color: colors.foreground }]}>Form Fields</Text>
@@ -322,5 +332,19 @@ const styles = StyleSheet.create({
   optionText: {
     fontSize: 13,
     fontFamily: "Inter_400Regular",
+  },
+  fillBtn: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 8,
+    paddingVertical: 12,
+    borderRadius: 10,
+    marginTop: 4,
+  },
+  fillBtnText: {
+    color: "#fff",
+    fontSize: 15,
+    fontFamily: "Inter_600SemiBold",
   },
 });
